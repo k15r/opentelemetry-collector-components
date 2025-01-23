@@ -17,7 +17,7 @@ PUSH=true
 # -d dry-run
 # -n no push
 
-while getopts "r:v:d" flag; do
+while getopts "r:v:dn" flag; do
 case "$flag" in
     d) DRYRUN=true;;
     v) VERSION=$OPTARG;;
@@ -30,7 +30,6 @@ regex="^[0-9]+\.[0-9]+\.[0-9]+$"
 
 if [[ $VERSION =~ $regex ]]; then
     echo "Valid release version: $VERSION"
-    exit 0
 else
     echo "Invalid release version: $version. Correct format: <major>.<minor>.<patch>"
     exit 1
